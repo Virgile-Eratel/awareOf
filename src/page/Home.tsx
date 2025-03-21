@@ -251,7 +251,7 @@ const Home = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => navigate("/game")}
+              onClick={() => navigate("/rules")}
               className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full shadow-xl transition duration-300"
             >
               Lancer le Mini Jeu
