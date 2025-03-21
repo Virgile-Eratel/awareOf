@@ -99,20 +99,29 @@ const Game = () => {
     };
 
     return (
-        <div className="w-screen h-screen bg-[#dcd9c3] p-8">
-            <h1 className="text-4xl text-black mb-4">Usine</h1>
-            <p className="text-xl text-black mb-4">
-                Consommation: <AnimatedCounter value={points} /> kJ
-            </p>
-            <p className="text-xl text-black mb-4">Temps restant : {timeLeft} sec</p>
-            <div className="grid grid-cols-4 gap-4">
-                {workers.map((worker) => (
-                    <WorkerItem
-                        key={worker.id}
-                        isActive={worker.isActive}
-                        onToggle={() => toggleWorker(worker.id)}
-                    />
-                ))}
+        <div className="w-screen h-screen bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center p-4">
+            <div className="bg-[#dcd9c3] rounded-xl shadow-xl p-8 w-full max-w-6xl">
+                <div className="flex justify-between items-center mb-6">
+                    <div className="text-center">
+                        <h2 className="text-2xl font-bold text-gray-800">Consommation</h2>
+                        <p className="text-3xl text-indigo-600">
+                            <AnimatedCounter value={points} /> kJ
+                        </p>
+                    </div>
+                    <div className="text-center">
+                        <h2 className="text-2xl font-bold text-gray-800">Temps restant</h2>
+                        <p className="text-3xl text-indigo-600">{timeLeft} sec</p>
+                    </div>
+                </div>
+                <div className="grid grid-cols-4 gap-6">
+                    {workers.map((worker) => (
+                        <WorkerItem
+                            key={worker.id}
+                            isActive={worker.isActive}
+                            onToggle={() => toggleWorker(worker.id)}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     );

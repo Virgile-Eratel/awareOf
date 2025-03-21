@@ -65,7 +65,7 @@ const RecapPage = () => {
 
     return (
         <div className="w-screen h-screen bg-gradient-to-r from-gray-100 to-gray-200 flex items-center justify-center p-8">
-            <div className="bg-white bg-opacity-80 backdrop-blur-md shadow-xl rounded-2xl flex flex-col gap-8 items-center justify-center text-gray-800 p-10 max-w-2xl">
+            <div className="bg-white bg-opacity-80 backdrop-blur-md shadow-xl rounded-2xl flex flex-col gap-8 items-center justify-center text-gray-800 p-10 max-w-4xl">
                 <h1 className="text-4xl font-semibold">
                     Consommation en 30 secondes : {score} kJ
                 </h1>
