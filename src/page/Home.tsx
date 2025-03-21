@@ -88,7 +88,33 @@ const Home = () => {
 
         {/* Contenu principal */}
         <main className="w-full container mx-auto px-4 py-12 relative z-20">
-          {/* Section 1 : Situation Actuelle */}
+        {/* Section 1 : La Beauté de la Nature */}
+        <motion.section
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="flex flex-col md:flex-row items-center my-12"
+        >
+          <div className="md:w-1/2 p-4">
+            <img
+              src="/images/a-photo-of-a-split-natural-landscape-wit_TzrKCb5hQwuFjEbAC5loiA_9gFY5OF7RTiWJa8BWb2Xbg.jpeg"
+              alt="Paysage naturel"
+              className="w-full rounded-lg shadow-2xl"
+            />
+          </div>
+          <div className="md:w-1/2 p-4">
+            <h2 className="text-3xl font-bold mb-4">La Beauté de la Nature</h2>
+            <p className="mb-4">
+              La Terre offre des paysages grandioses et variés qui méritent
+              d'être protégés. Ces images nous rappellent la splendeur naturelle
+              que nous risquons de perdre face aux dérives technologiques.
+            </p>
+          </div>
+          
+        </motion.section>
+
+          {/* Section 5 : Données, Infographies & Visuels IA */}
           <motion.section
             variants={fadeInUp}
             initial="hidden"
@@ -96,43 +122,22 @@ const Home = () => {
             viewport={{ once: true }}
             className="flex flex-col md:flex-row items-center my-12"
           >
-            <div className="md:w-1/2 p-4">
-              <h2 className="text-3xl font-bold mb-4">Situation Actuelle</h2>
+            <div className="md:w-2/5 p-4">
+              <h2 className="text-3xl font-bold mb-4">Données et Visuels</h2>
               <p className="mb-4">
-                Le minage de cryptomonnaies, en particulier le Bitcoin, requiert une puissance de calcul considérable. En 2022, les cryptos ont consommé environ <strong>110 térawattheures</strong> d’électricité (0,4 % de la demande mondiale annuelle), contribuant ainsi à une empreinte carbone alarmante.
-              </p>
-              <p className="mb-4">
-                Par exemple, en 2021, le réseau Bitcoin a utilisé près de <strong>1 574 milliards de litres d'eau</strong> pour refroidir ses installations, soit environ 16 000 litres par transaction – une comparaison qui met en lumière l’ampleur du gaspillage par rapport aux transactions traditionnelles.
+                Infographies et images générées par IA vous permettent de visualiser la consommation énergétique et l'impact environnemental du minage. Ces représentations rendent accessibles des enjeux complexes pour mieux les comprendre.
               </p>
             </div>
-            <div className="md:w-1/2 p-4">
+            <div className="md:w-3/5 p-4 grid grid-cols-5 gap-4">
               <img
-                src="/images/a-photo-of-a-split-natural-landscape-wit_TzrKCb5hQwuFjEbAC5loiA_9gFY5OF7RTiWJa8BWb2Xbg.jpeg"
-                alt="Impact environnemental"
-                className="w-full rounded-lg shadow-2xl"
+                src="/images/a-stylized-infographic-style-image-with-_wQIOtEUWRCWG4feMGAz4Ww_X9HXGpUCR7uIbShy4aHfNw.jpeg"
+                alt="Infographie énergétique"
+                className="h-full rounded-lg shadow-2xl col-span-2"
               />
-            </div>
-          </motion.section>
-
-          {/* Section 2 : Problématique Énergétique */}
-          <motion.section
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="flex flex-col md:flex-row-reverse items-center my-12"
-          >
-            <div className="md:w-1/2 p-4">
-              <h2 className="text-3xl font-bold mb-4">Problématique Énergétique</h2>
-              <p className="mb-4">
-                L’utilisation intensive des GPUs pour miner engendre une surconsommation d’électricité et accentue la pression sur nos ressources énergétiques. Ce modèle non durable alimente directement le changement climatique et soulève des enjeux cruciaux pour l’avenir de notre planète.
-              </p>
-            </div>
-            <div className="md:w-1/2 p-4">
               <img
-                src="/images/aerial-photo-of-a-massive-bitcoin-mining_s6sR5VOjTe28rINljT7zYQ_E6lBPrANR-eAkoHT7eKqVA.jpeg"
-                alt="Infrastructure énergétique"
-                className="w-full rounded-lg shadow-2xl"
+                src="/images/output.png"
+                alt="Visuel IA de l'impact écologique"
+                className="h-full w- rounded-lg shadow-2xl col-span-3"
               />
             </div>
           </motion.section>
@@ -171,15 +176,15 @@ const Home = () => {
             >
               <SwiperSlide>
                 <img
-                  src="/images/a-photo-of-a-massive-bitcoin-mining-farm_bme4-UVRQ06-XUWTyFjwzw_E6lBPrANR-eAkoHT7eKqVA.jpeg"
-                  alt="Fermes de minage énergivores"
+                  src="/images/an-aerial-view-of-a-massive-bitcoin-mini_7HTMxXy6TNm2uuBVnzsa4g_E6lBPrANR-eAkoHT7eKqVA.jpeg"
+                  alt="Vue aérienne de consommation énergétique"
                   className="w-full h-auto rounded-lg shadow-2xl"
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <img
-                  src="/images/an-aerial-view-of-a-massive-bitcoin-mini_7HTMxXy6TNm2uuBVnzsa4g_E6lBPrANR-eAkoHT7eKqVA.jpeg"
-                  alt="Vue aérienne de consommation énergétique"
+                  src="/images/thermique.webp"
+                  alt="Fermes de minage énergivores"
                   className="w-full h-auto rounded-lg shadow-2xl"
                 />
               </SwiperSlide>
@@ -212,34 +217,30 @@ const Home = () => {
             </div>
           </motion.section>
 
-          {/* Section 5 : Données, Infographies & Visuels IA */}
+
+
+          {/* Section 2 : Problématique Énergétique */}
           <motion.section
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="flex flex-col md:flex-row items-center my-12"
+            className="flex flex-col md:flex-row-reverse items-center my-12"
           >
             <div className="md:w-1/2 p-4">
-              <h2 className="text-3xl font-bold mb-4">Données et Visuels</h2>
+              <h2 className="text-3xl font-bold mb-4">Problématique Énergétique</h2>
               <p className="mb-4">
-                Infographies et images générées par IA vous permettent de visualiser la consommation énergétique et l'impact environnemental du minage. Ces représentations rendent accessibles des enjeux complexes pour mieux les comprendre.
+                L’utilisation intensive des GPUs pour miner engendre une surconsommation d’électricité et accentue la pression sur nos ressources énergétiques. Ce modèle non durable alimente directement le changement climatique et soulève des enjeux cruciaux pour l’avenir de notre planète.
               </p>
             </div>
-            <div className="md:w-1/2 p-4 grid grid-cols-2 gap-4">
+            <div className="md:w-1/2 p-4">
               <img
-                src="/images/a-stylized-infographic-style-image-with-_wQIOtEUWRCWG4feMGAz4Ww_X9HXGpUCR7uIbShy4aHfNw.jpeg"
-                alt="Infographie énergétique"
-                className="w-full rounded-lg shadow-2xl"
-              />
-              <img
-                src="/images/ia-generated-visual.jpeg"
-                alt="Visuel IA de l'impact écologique"
+                src="/images/aerial-photo-of-a-massive-bitcoin-mining_s6sR5VOjTe28rINljT7zYQ_E6lBPrANR-eAkoHT7eKqVA.jpeg"
+                alt="Infrastructure énergétique"
                 className="w-full rounded-lg shadow-2xl"
               />
             </div>
           </motion.section>
-
           {/* Call to Action */}
           <motion.section
             variants={fadeInUp}
