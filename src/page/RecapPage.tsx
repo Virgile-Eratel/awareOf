@@ -10,6 +10,15 @@ type LeaderboardEntry = {
 const RecapPage = () => {
     const location = useLocation();
     const navigate = useNavigate();
+
+    // Si location.state n'est pas défini ou ne contient pas de score, rediriger
+    useEffect(() => {
+        if (!location.state || typeof location.state.score !== "number") {
+            navigate("/rules");
+        }
+    }, [location.state, navigate]);
+
+    // Ici, score est garanti d'exister (grâce à la redirection précédente)
     const score = location.state?.score || 0;
     const result = 172000 - score;
     const exemple = Math.round(result / 5000);
@@ -49,6 +58,9 @@ const RecapPage = () => {
 
     const handleReplay = () => {
         navigate("/game");
+    };
+    const handleHome = () => {
+        navigate("/");
     };
 
     return (
@@ -94,12 +106,20 @@ const RecapPage = () => {
                     </div>
                 </div>
 
-                <button
-                    onClick={handleReplay}
-                    className="px-8 py-4 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition shadow-md"
-                >
-                    Rejouer
-                </button>
+                <div className="flex gap-4">
+                    <button
+                        onClick={handleReplay}
+                        className="px-8 py-4 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition shadow-md"
+                    >
+                        Rejouer
+                    </button>
+                    <button
+                        onClick={handleHome}
+                        className="px-8 py-4 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition shadow-md"
+                    >
+                        Home
+                    </button>
+                </div>
             </div>
         </div>
     );
