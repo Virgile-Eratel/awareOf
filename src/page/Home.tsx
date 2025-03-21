@@ -7,11 +7,8 @@ import { useInView } from "react-intersection-observer";
 // Swiper (Carousel)
 import { Swiper, SwiperSlide } from "swiper/react";
 // Pour Swiper >= 8
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 
-// N'oublie pas d'importer les styles de Swiper (par exemple, dans ton index.css ou App.css)
-import "swiper/css";
-import "swiper/css/pagination";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -264,7 +261,7 @@ const Home = () => {
         <footer className="w-full bg-gray-800 text-gray-300 py-6 mt-12">
           <div className="container mx-auto text-center">
             <p>
-              &copy; {new Date().getFullYear()} Bitcoin : Quand le Minage Chauffe la Planète. Tous droits réservés.
+              &copy; {new Date().getFullYear()} L'équipe Ynov : Virgile - Augustin - Sami. Tous droits réservés.
             </p>
           </div>
         </footer>
