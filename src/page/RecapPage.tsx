@@ -18,9 +18,9 @@ const RecapPage = () => {
         }
     }, [location.state, navigate]);
 
-    // Ici, score est garanti d'exister (grâce à la redirection précédente)
+    // Ici, score est garanti d'exister
     const score = location.state?.score || 0;
-    const result = 172000 - score;
+    const result = 153600 - score;
     const exemple = Math.round(result / 5000);
 
     const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
@@ -28,7 +28,7 @@ const RecapPage = () => {
     const updatedRef = useRef(false);
 
     useEffect(() => {
-        // On exécute ce bloc une seule fois
+        // Exécuter ce bloc une seule fois
         if (updatedRef.current) return;
         updatedRef.current = true;
 
@@ -65,8 +65,7 @@ const RecapPage = () => {
 
     return (
         <div className="w-screen h-screen bg-gradient-to-r from-gray-100 to-gray-200 flex items-center justify-center p-8">
-            <div
-                className="bg-white bg-opacity-80 backdrop-blur-md shadow-xl rounded-2xl flex flex-col gap-8 items-center justify-center text-gray-800 p-10 max-w-4xl">
+            <div className="bg-white bg-opacity-80 backdrop-blur-md shadow-xl rounded-2xl flex flex-col gap-8 items-center justify-center text-gray-800 p-10 max-w-4xl">
                 <h1 className="text-4xl font-semibold">
                     Vous avez sauvé <strong>{result} kJ</strong> en 30 secondes !
                 </h1>
@@ -78,8 +77,8 @@ const RecapPage = () => {
                 </h1>
                 <p className="text-lg text-center">
                     Sans vous, les usines auraient consommé plus de{" "}
-                    <strong>172 000 kJ</strong>, soit la consommation de{" "}
-                    <strong>plus d'un million</strong> de foyers français sur le même temps.
+                    <strong>153 600 kJ / 42,7 kWh</strong>, soit la consommation de{" "}
+                    <strong>426</strong> ampoules LED allumées pendant 10 heures.
                 </p>
 
                 <div className="w-full">
@@ -95,7 +94,14 @@ const RecapPage = () => {
                             </thead>
                             <tbody>
                             {leaderboard.map((entry, index) => (
-                                <tr key={index} className="hover:bg-gray-50">
+                                <tr
+                                    key={index}
+                                    className={`hover:bg-gray-50 ${
+                                        entry.score === score && entry.saving === result
+                                            ? "bg-blue-100"
+                                            : ""
+                                    }`}
+                                >
                                     <td className="py-2 px-4 border-b">{index + 1}</td>
                                     <td className="py-2 px-4 border-b">{entry.score}</td>
                                     <td className="py-2 px-4 border-b">{entry.saving}</td>
